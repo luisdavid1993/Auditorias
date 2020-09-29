@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/prueba" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/prueba" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Carro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Color" type="tns:EnumColor" />
+      <xs:element minOccurs="0" name="IdCarro" type="xs:int" />
+      <xs:element minOccurs="0" name="IdHiloHijo" type="xs:int" />
+      <xs:element minOccurs="0" name="IdHiloPrincipal" type="xs:int" />
+      <xs:element minOccurs="0" name="Linea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marca" nillable="true" type="tns:Fabricante" />
+      <xs:element minOccurs="0" name="Modelo" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoUso" type="tns:EnumTipoUso" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Carro" nillable="true" type="tns:Carro" />
+  <xs:simpleType name="EnumColor">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Rojo" />
+      <xs:enumeration value="Gris" />
+      <xs:enumeration value="Negro" />
+      <xs:enumeration value="Azul" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EnumColor" nillable="true" type="tns:EnumColor" />
+  <xs:complexType name="Fabricante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fabricante" nillable="true" type="tns:Fabricante" />
+  <xs:simpleType name="EnumTipoUso">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Familiar" />
+      <xs:enumeration value="Individual" />
+      <xs:enumeration value="Carga" />
+      <xs:enumeration value="Pasajeros" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EnumTipoUso" nillable="true" type="tns:EnumTipoUso" />
+</xs:schema>
